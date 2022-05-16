@@ -5,7 +5,6 @@ let precio = " "
 function solicitarPrecio(){
     precio = parseInt(prompt("Ingresá precio del producto"));}
 
-
 // Mientras no se ingrese precio, el precio ingresado sea menor a 1 o no sea un valor numérico, va a solicitar el reingreso
 while (!precio || precio <1 || (isNaN (precio))){
     solicitarPrecio(precio)
@@ -26,24 +25,22 @@ function solicitarCuotas(){
 //-------------------------CALCULAR PRECIO TOTAL CON RECARGO----------------------------//
 
 // Function calcular el precio con recargo
-let valorTotal = 0
-function calcularTotal (){
-    valorTotal = (precio + ((precio*interes)*cuotas))}
+function calcularTotal (a, b, c){
+    return  a + ((a*b)*c)}
     
 //----------------------------------CALCULAR VALOR DE CUOTA----------------------------//
 
 // Function calcular el valor de cada cuota
-let valorCuota = 0
-function calcularCuota (){
-    valorCuota = ((precio + (precio*interes))/cuotas)}
+function calcularCuota (a, b, c){
+    return (a+ (a*b))/c}
 
-//-------------------------MOSTRAR MENSAJE---------------------------//
+//-----------------------------------MOSTRAR MENSAJE-----------------------------------//
+
 // Function mostrar mensaje 
 function mostrar (mensaje){
     alert(mensaje)}
 
-
-//-------------------------CALCULADORA DE INTERESES--------------------------//
+//--------------------------------CALCULADORA DE INTERESES-----------------------------//
 
 //Mientras no se ingresen las cuotas, el valor ingresado sea menor a 1, superior a 6 o no sea un valor numérico, va a solicitar se reingresen
 while ( !cuotas || cuotas <=0 || cuotas >6 || (isNaN(cuotas)) ){
@@ -51,8 +48,8 @@ while ( !cuotas || cuotas <=0 || cuotas >6 || (isNaN(cuotas)) ){
     continue}
     //Cuando se ingresen entre 2 y 6 cuotas va a calcular el precio con recargo y el valor de cada cuota y lo va a devolver en un alert
         if  (cuotas >=2){
-            calcularCuota (valorCuota);
-            calcularTotal (valorTotal);
+            valorCuota = calcularCuota(precio,interes,cuotas);
+            valorTotal = calcularTotal(precio, interes,cuotas);
             mostrar ("Pagarás" + " " + "$" + valorTotal+ " " + "en" + " " + cuotas + " " + "cuotas mensuales de"+ " " +"$"+ valorCuota );}
     //Cuando se ingrese una sola cuota va a devolver un mensaje 
         else { 
